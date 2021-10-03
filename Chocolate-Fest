@@ -1,0 +1,39 @@
+'''
+    Time Complexity: O(N^2)
+    Space Complexity: O(N)
+
+    where 'N' is the number of elements in the array 'choco'.
+
+'''
+
+def chocolateFest(choco, x):
+
+    # Initialize current sum, minimum length, starting index for answer
+    n = len(choco)
+    min_len = n + 1
+    start_index = 0
+
+    for i in range(n):
+
+        curr_sum = 0
+
+        for j in range(i, n):
+            curr_sum = curr_sum + choco[j]
+            if (curr_sum > x and (j - i + 1) < min_len):
+
+                min_len = j - i + 1
+                start_index = i
+
+    result = []
+
+    for i in range(start_index, start_index + min_len):
+        result.append(choco[i])
+
+    return result
+
+
+
+
+
+
+
